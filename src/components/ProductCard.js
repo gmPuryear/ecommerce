@@ -1,16 +1,8 @@
+import {convertToUSDFormat} from "../utils/Money";
+import {Link} from "react-router-dom";
+
 function ProductCard(products) {
     const productInfo = products.products;
-
-    const convertToUSDFormat = (price) => {
-        return (price).toLocaleString(
-            "en-US",
-            {
-                style: "currency",
-                currency: "usd"
-            }
-        )
-    }
-
 
     const productCard = productInfo.map(product => {
         return (
@@ -25,13 +17,15 @@ function ProductCard(products) {
                             {product.description}
                         </p>
                         <p>Price: {convertToUSDFormat(product.price)}</p>
-                        <button type="button"
-                                className="mt-4 inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs
+                        <Link to="cart">
+                            <button type="button"
+                                    className="mt-4 inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs
                                  leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg
                                  focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800
                                  active:shadow-lg transition duration-150 ease-in-out">
-                            Add To Cart
-                        </button>
+                                Add To Cart
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </div>

@@ -1,9 +1,8 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
-import ProductCard from "../components/ProductCard";
-import {logDOM} from "@testing-library/react";
+import ProductCard from "./ProductCard";
 
-function ProductPageComponent () {
+function Products () {
     const API_URL = 'https://fakestoreapi.com/products';
 
     const [products, setProduct] = useState([]);
@@ -25,5 +24,5 @@ function ProductPageComponent () {
     );
 }
 
-export default ProductPageComponent;
+export default Products;
 
