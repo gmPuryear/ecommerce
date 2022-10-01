@@ -1,20 +1,28 @@
 import './css/App.css';
-import { Route, Routes } from 'react-router-dom';
+import {Route, Routes} from 'react-router-dom';
 import Products from "./components/Products";
-import Cart from "./components/Cart";
+import Header from "./components/Header";
 import Checkout from "./components/Checkout";
+import NotFound from "./components/NotFound";
 
 
 function App() {
+    // If no other routes match, then it will render out the "not Found" page
+    // {/*<Route path = "/cart" element = {<Cart/>}/>*/}
+    return (
+        <Routes>
 
-  return (
-      <Routes>
-          <Route path = "/" element = {<Products/>}/>
-          <Route path = "/cart" element = {<Cart/>}/>
-          <Route path = "/checkout" element = {<Checkout/>}/>
+            <Route element={<Header/>}>
+                <Route path="/" element={<Products/>}/>
 
-      </Routes>
-  )
+
+                <Route path="/checkout" element={<Checkout/>}/>
+            </Route>
+
+            <Route path="*" element={<NotFound/>}/>
+
+        </Routes>
+    )
 }
 
 export default App;

@@ -4,6 +4,13 @@ import {Link} from "react-router-dom";
 function ProductCard(products) {
     const productInfo = products.products;
 
+    const addToCart = (name, price) => {
+        const cartItem = {
+            productName: name,
+            productPrice: price
+        }
+    }
+
     const productCard = productInfo.map(product => {
         return (
             <div key={product.id} className="flex justify-center mt-8">
@@ -17,7 +24,7 @@ function ProductCard(products) {
                             {product.description}
                         </p>
                         <p>Price: {convertToUSDFormat(product.price)}</p>
-                        <Link to="cart">
+                        <Link to="/cart">
                             <button type="button"
                                     className="mt-4 inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs
                                  leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg
