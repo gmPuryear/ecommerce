@@ -1,15 +1,19 @@
 import {convertToUSDFormat} from "../utils/Money";
 import {Link} from "react-router-dom";
+import {useState} from "react";
 
 function ProductCard(products) {
+    const [cartItems, setCartItems] = useState([]);
+
     const productInfo = products.products;
 
-    const addToCart = (name, price) => {
-        const cartItem = {
-            productName: name,
-            productPrice: price
-        }
-    }
+    const addToCart = useCallback(
+            (product) => {
+                console.log(product);
+            },
+        [input],
+    );
+
 
     const productCard = productInfo.map(product => {
         return (
@@ -25,7 +29,7 @@ function ProductCard(products) {
                         </p>
                         <p>Price: {convertToUSDFormat(product.price)}</p>
                         <Link to="/cart">
-                            <button type="button"
+                            <button type="button" onClick={addToCart(product)}
                                     className="mt-4 inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs
                                  leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg
                                  focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800
