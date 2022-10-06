@@ -1,13 +1,12 @@
 import {FaShoppingCart} from 'react-icons/fa'
-import { Outlet } from "react-router-dom"
+import {Link, Outlet} from "react-router-dom"
 
 function Header() {
 
 
     return (
         <div>
-            <h1>Cart Page</h1>
-            <span className="text-red-300"><FaShoppingCart/></span>
+            BANNER HERE ON HEADER CONENT!
             <Outlet/>
         </div>
     )

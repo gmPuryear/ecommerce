@@ -4,6 +4,7 @@ import Products from "./components/Products";
 import Header from "./components/Header";
 import Checkout from "./components/Checkout";
 import NotFound from "./components/NotFound";
+import Cart from"./components/Cart";
 
 
 function App() {
@@ -11,16 +12,12 @@ function App() {
     // {/*<Route path = "/cart" element = {<Cart/>}/>*/}
     return (
         <Routes>
-
             <Route element={<Header/>}>
-                <Route path="/" element={<Products/>}/>
-
-
-                <Route path="/checkout" element={<Checkout/>}/>
+                <Route path = "/" element = {<Products/>}/>
+                <Route path = "/cart" element = {<Cart/>}/>
+                <Route path = "/checkout" element={<Checkout/>}/>
             </Route>
-
             <Route path="*" element={<NotFound/>}/>
-
         </Routes>
     )
 }
