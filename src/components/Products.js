@@ -6,41 +6,32 @@ import {Link} from "react-router-dom";
 
 function Products() {
     const API_URL = 'https://fakestoreapi.com/products';
-
     const [products, setProduct] = useState([]);
 
+    // grabs products from API to display on page
     useEffect(() => {
         axios.get(API_URL)
             .then(res => setProduct(res.data))
             .catch(err => console.log(err));
     }, []);
 
+    // creates shopping cart in local storage on page load
     useEffect(() => {
         if (!localStorage.getItem("cart")) {
             localStorage.setItem("cart", "[]");
         }
-    }, [])
+    }, []);
 
 
-    // console.log(productInfo[0]);
 
-    // const displayDataArray = productData.map(item =>
-    //     <img className="h-40" key={item.id} src={item.image} alt="pictures"/>)
     return (
         <>
             <div>
-                <Link to="cart">
-                    <button className="text-red-300">
-                        <FaShoppingCart/>
-                    </button>
-                </Link>
-            </div>
-            <div>
-                {products && <ProductCard products={products}/>}
+                {/*<ProductCard handleAddToCart={handleAddToCart} products={products}/>*/}
+                <ProductCard products={products}/>
             </div>
         </>
-    )
-        ;
+    );
 }
 
 export default Products;
