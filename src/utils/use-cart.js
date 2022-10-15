@@ -1,4 +1,5 @@
-// import {useState} from "react";
+import React from "react";
+import {useState} from "react";
 //
 // // Use context is for passing down props to ALL components, children their children, etc.
 // // Use context is broken into two sections:
@@ -11,3 +12,8 @@
 //     const cartContains
 // }
 // export const cartContext = React.createContext();
+
+// export const CartContext = React.createContext(undefined);
+
+const CartContext = React.createContext(undefined);
+
